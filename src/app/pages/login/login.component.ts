@@ -22,4 +22,8 @@ export class LoginComponent implements OnInit {
     
   }
 
+  onCheckServer() {
+    this.chatService.checkServer();
+  }
+
 }

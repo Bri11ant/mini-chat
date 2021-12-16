@@ -17,9 +17,7 @@ export class ChatBoxComponent implements OnInit {
   ngOnInit(): void {
     this.chatService.chatSubject.subscribe(
       (res: Chat[]) => this.chats = res.sort(
-        (oldChat,newChat) => {
-          return oldChat.date_chat.getTime() < newChat.date_chat.getTime()? 1:-1;
-        }
+        (oldChat,newChat) => -1
       ),
     );
     this.chatService.chatEmit();

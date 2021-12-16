@@ -1,12 +1,15 @@
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Chat } from "../models/chat.model";
 
+@Injectable()
 export class ChatService {
     currentUser: string = '';
     private chats: Chat[] = [];
     chatSubject = new Subject<Chat[]>();
 
-    constructor() {
+    constructor(private http: HttpClient) {
     /*
         CHAT SAMPLE
     */
@@ -30,5 +33,12 @@ export class ChatService {
        const newChat = new Chat(this.currentUser, message, new Date());
        this.chats.push(newChat);
        this.chatEmit();
+
+   }
+
+    checkServer() {
+        this.http.get('http://localhost:3000').subscribe(
+            (res: any) => console.log(res.message),
+        );
    }
 }
