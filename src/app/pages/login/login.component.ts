@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.chatService.currentUser = form.value['pseudo'];
     this.router.navigate(['/chat-box']);
-    console.log(this.chatService.currentUser);
     
   }
 

@@ -1,1 +1,21 @@
 <h3>User: "{{ currentUser }}"</h3>
+
+<div class="col-sm-8">
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <textarea name="message" id="message" class="form-control" placeholder="message"
+    ngModel required></textarea>
+    <button type="submit" class="btn btn-success">Send</button>
+  </form>
+</div>
+
+<ul class="list-group" *ngFor="let chat of chats">
+    <li class="list-group-item col-sm-8
+        {{currentUser===chat.writer_chat? 'active':null}}"
+        style="margin: 1em 2em;">
+        <h5>{{ chat.writer_chat }}</h5>
+        <p>{{ chat.message_chat }}</p>
+        <p style="font-style: italic;">
+            {{ chat.date_chat | date: "dd/MM/Y hh:mm:ss" }}
+        </p>
+    </li>
+</ul>
