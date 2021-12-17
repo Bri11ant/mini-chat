@@ -15,6 +15,7 @@ export class ChatBoxComponent implements OnInit {
   constructor(private chatService: ChatService) { }
 
   ngOnInit(): void {
+    this.chatService.updateChats();
     this.chatService.chatSubject.subscribe(
       (res: Chat[]) => this.chats = res.sort(
         (oldChat,newChat) => -1
@@ -27,6 +28,10 @@ export class ChatBoxComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.chatService.sendMsg(form.value['message']);
+  }
+
+  onRefresh() {
+    this.chatService.updateChats();
   }
 
 }
