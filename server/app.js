@@ -1,11 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+const chat = require('./models/chat.model');
 
 const app = express();
 
 /*
     CHAT SAMPLE
-*/
+ *
     let chats = [
         {
             writer_chat: 'Jhonny',
@@ -33,9 +36,16 @@ const app = express();
             date_chat: new Date
         },
     ];
-/*
+ *
  *
  */
+
+mongoose.connect('mongodb+srv://Brillant:lightmmongodb@cluster0.mj48v.mongodb.net\
+/mini-chat-DB?retryWrites=true&w=majority',
+    { useNewUrlParser: true, useUnifiedTopology: true }
+)
+    .then(() => console.log("Connection au Mongodb établit!"))
+    .catch((error) => console.error("Connection échouée! ", error));
 
 app.use(bodyParser.json());
 app.use((req, res, next) => {
@@ -47,18 +57,27 @@ Content-Type, Authorization');
 });
 
 app.post('/api/chats',(req,res,next) => {
-    
     delete req.body._id;
-    const newChat = { ...req.body };
-    chats.push(newChat);
+    const newChat = chat({ ...req.body });
     const msg = "Chat inséré! " + newChat.message_chat;
 
-    res.status(201).json({ message: msg });
-    console.log(msg);
+    newChat.save().then(
+        () => {
+            res.status(201).json({ message: msg });
+            console.log(msg);
+        }
+    ).catch(error => res.status(500).json({ error }));
+
 });
 
 app.get('/api/chats',(req,res,next) => {
-    res.status(200).json({ chats });
+    let chats = [];
+    chat.find().then(
+        val => {
+            chats = val? val:[];
+            res.status(200).json({ chats });
+        }
+    ).catch(error => res.status(500).json({ error }));
 });
 
 module.exports = app;
