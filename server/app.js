@@ -6,41 +6,7 @@ const chat = require('./models/chat.model');
 
 const app = express();
 
-/*
-    CHAT SAMPLE
- *
-    let chats = [
-        {
-            writer_chat: 'Jhonny',
-            message_chat: `Hi everyone`,
-            date_chat: new Date
-        },
-        {
-            writer_chat: 'Kevin',
-            message_chat: `Hi Jhonny`,
-            date_chat: new Date
-        },
-        {
-            writer_chat: 'Jhonny',
-            message_chat: `I'm from england and you?`,
-            date_chat: new Date
-        },
-        {
-            writer_chat: 'Kevin',
-            message_chat: `I'm from Madagascar`,
-            date_chat: new Date
-        },
-        {
-            writer_chat: 'Brillant',
-            message_chat: `Za koa avy any madagascar!`,
-            date_chat: new Date
-        },
-    ];
- *
- *
- */
-
-mongoose.connect('mongodb+srv://Brillant:lightmmongodb@cluster0.mj48v.mongodb.net\
+mongoose.connect('mongodb+srv://Brillant:mongodb@cluster0.mj48v.mongodb.net\
 /mini-chat-DB?retryWrites=true&w=majority',
     { useNewUrlParser: true, useUnifiedTopology: true }
 )
