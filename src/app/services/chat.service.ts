@@ -24,7 +24,10 @@ export class ChatService {
         const newChat = new Chat(this.currentUser, message, new Date());
 
         this.http.post('http://localhost:3000/api/chats', newChat).subscribe(
-            () => console.log("sent!"),
+            () => {
+                console.log("sent!");
+                this.socket.emit('new chat');
+            },
             error => console.error("Erreur! ", error)
         );
     }
@@ -43,9 +46,9 @@ export class ChatService {
     }
 
     updateChats() {
-        this.socket.on('newChat',
-            (newChat: any) => {
-                this.chats.push(newChat);
+        this.socket.on('update chats',
+            (chats: any) => {
+                this.chats = chats;
                 this.chatEmit();
             }
         )

@@ -1,0 +1,47 @@
+[33mcommit c813e0a36637e027af2bdd5c8a063b05e57a3f5a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: brillant <jbrillantf@gmail.com>
+Date:   Fri Dec 17 01:54:04 2021 +0300
+
+    ignorer le node_modules du server
+
+[33mcommit 8924d31cc2e41650b98f4e1766fb2cdd99b78a07[m
+Author: brillant <jbrillantf@gmail.com>
+Date:   Sat Dec 18 05:31:05 2021 +0300
+
+    mise en place du Socket.io
+
+[33mcommit 0e3489cdad04c474756152b7cf019f92166c044a[m
+Author: brillant <jbrillantf@gmail.com>
+Date:   Fri Dec 17 17:02:16 2021 +0300
+
+    connexion au MongoDB établit
+
+[33mcommit 092c2d4f831dc7ebec5f70f5b75e8dcf496a93ca[m
+Author: brillant <jbrillantf@gmail.com>
+Date:   Fri Dec 17 12:16:46 2021 +0300
+
+    server opérationel mais sans base de donnée
+
+[33mcommit 502e27f4e34b96017fe4d0ff93c12c6b503aa3ca[m
+Author: brillant <jbrillantf@gmail.com>
+Date:   Fri Dec 17 01:29:13 2021 +0300
+
+    mise en place du server
+
+[33mcommit bf9cc47e348afb39876eda6b91f5af1cc8340c75[m[33m ([m[1;31morigin/f-base[m[33m, [m[1;32mf-base[m[33m)[m
+Author: brillant <jbrillantf@gmail.com>
+Date:   Thu Dec 16 22:07:21 2021 +0300
+
+    send chat without server
+
+[33mcommit 248a08a76fceeb4446c2906d999591d6a2dce962[m
+Author: brillant <jbrillantf@gmail.com>
+Date:   Thu Dec 16 19:14:05 2021 +0300
+
+    login & router
+
+[33mcommit a50890bff7e0abf07f5508daa1cedeb13076c6d0[m
+Author: brillant <jbrillantf@gmail.com>
+Date:   Thu Dec 16 17:22:58 2021 +0300
+
+    Initialisation du projet
