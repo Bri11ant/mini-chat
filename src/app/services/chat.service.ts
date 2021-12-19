@@ -6,7 +6,7 @@ import { Chat } from "../models/chat.model";
 
 @Injectable()
 export class ChatService {
-    currentUser: string = '';
+    currentUser: any;
     private chats: Chat[] = [];
     chatSubject = new Subject<Chat[]>();
     socket: Socket;

@@ -1,4 +1,4 @@
-<h3>User: "{{ currentUser }}"</h3>
+<h3>User: "{{ currentUser.pseudo }}"</h3>
 
 <div class="col-sm-8">
   <form (ngSubmit)="onSubmit(form)" #form="ngForm">
@@ -12,9 +12,9 @@
 
 <ul class="list-group" *ngFor="let chat of chats">
     <li class="list-group-item col-sm-8
-        {{currentUser===chat.writer_chat? 'active':null}}"
+        {{currentUser.email===chat.writer_chat.email? 'active':null}}"
         style="margin: 1em 2em;">
-        <h5>{{ chat.writer_chat }}</h5>
+        <h5>{{ chat.writer_chat.pseudo }}</h5>
         <p>{{ chat.message_chat }}</p>
         <p style="font-style: italic;">
             {{ chat.date_chat | date: "dd/MM/Y hh:mm:ss" }}

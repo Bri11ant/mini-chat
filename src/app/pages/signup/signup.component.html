@@ -1,0 +1,28 @@
+<ng-container >
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="col-sm-3">
+          <label for="email" class="form-label">E-mail:</label>
+          <input type="text" formControlName="email" id="email">
+        </div>
+
+        <div class="col-sm-3">
+            <label for="pseudo" class="form-label">Pseudo:</label>
+            <input type="text" formControlName="pseudo" id="pseudo">
+        </div>
+
+        <div class="col-sm-3">
+            <label for="pass" class="form-label">Pass:</label>
+            <input type="password" formControlName="pass" id="pass">
+        </div>
+
+        <!--div class="col-sm-3">
+            <label for="check-pass" class="form-label">Confirm:</label>
+            <input type="password" id="check-pass">
+        </div-->
+
+        <button type="submit" class="btn btn-primary"
+                [disabled]="userForm.invalid">Signup</button>
+    </form>
+    <button type="button" class="btn btn-warning"
+            routerLink="/login">Back</button>
+</ng-container>

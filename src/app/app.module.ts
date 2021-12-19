@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ChatService } from './services/chat.service';
 import { ChatBoxComponent } from './pages/chat-box/chat-box.component';
-import { SocketIoModule } from 'ngx-socket-io';
+import { SignupComponent } from './pages/signup/signup.component';
+import { UserService } from './services/user.sevice';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ChatBoxComponent
+    ChatBoxComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -22,10 +24,10 @@ import { SocketIoModule } from 'ngx-socket-io';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SocketIoModule.forRoot({ url: 'http://localhost:3000' }),
   ],
   providers: [
     ChatService,
+    UserService,
   ],
   bootstrap: [AppComponent]
 })

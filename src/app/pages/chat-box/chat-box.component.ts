@@ -9,7 +9,7 @@ import { ChatService } from 'src/app/services/chat.service';
   styleUrls: ['./chat-box.component.scss']
 })
 export class ChatBoxComponent implements OnInit {
-  currentUser: string = '';
+  currentUser: any;
   chats: Chat[] = [];
 
   constructor(private chatService: ChatService) { }
@@ -18,7 +18,7 @@ export class ChatBoxComponent implements OnInit {
     this.chatService.updateChats();
     this.chatService.chatSubject.subscribe(
       (res: Chat[]) => this.chats = res.sort(
-        (oldChat,newChat) => -1
+        () => -1
       ),
     );
     this.chatService.chatEmit();
