@@ -10,6 +10,7 @@ import { ChatService } from './services/chat.service';
 import { ChatBoxComponent } from './pages/chat-box/chat-box.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UserService } from './services/user.sevice';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UserService } from './services/user.sevice';
   providers: [
     ChatService,
     UserService,
+    CookieService,
   ],
   bootstrap: [AppComponent]
 })

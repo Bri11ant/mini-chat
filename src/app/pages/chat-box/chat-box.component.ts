@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Chat } from 'src/app/models/chat.model';
 import { ChatService } from 'src/app/services/chat.service';
+import { UserService } from 'src/app/services/user.sevice';
 
 @Component({
   selector: 'app-chat-box',
@@ -12,7 +14,9 @@ export class ChatBoxComponent implements OnInit {
   currentUser: any;
   chats: Chat[] = [];
 
-  constructor(private chatService: ChatService) { }
+  constructor(private chatService: ChatService,
+              private userService: UserService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.chatService.updateChats();
@@ -28,10 +32,12 @@ export class ChatBoxComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.chatService.sendMsg(form.value['message']);
+    form.reset();
   }
 
-  onRefresh() {
-    this.chatService.updateChats();
+  onLogout() {
+    this.userService.logout();
+    this.router.navigate(['/login']);
   }
 
 }
